@@ -22,5 +22,6 @@ setup(
         'matplotlib',
         'numpy',
         'pints',
+        'scipy',
     ],
 )
