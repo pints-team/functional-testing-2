@@ -87,3 +87,35 @@ class MixtureModel(pints.LogPDF):
         score = logsumexp(scores)
 
         return score
+
+    def compute_kullback_leibler_divergence(
+            self, parameters, chain, n_samples):
+        r"""
+        Approximately computes the Kullback-Leibler divergence and its
+        estimated error.
+
+        The Kullback-Leibler divergence is defined as
+
+        .. math::
+            D(f || g) = \mathbb{E}\left[ \log \frac{f(x)}{g(x)} \right] ,
+
+        where the expectation is taken w.r.t. :math:`f(x)`. We approximate the
+        divergence by drawing :math:`n` i.i.d. samples from :math:`f(x)` and
+        compute
+
+        .. math::
+            \hat{D}(f || g) \approx \frac{1}{n}
+            \sum _{i=1}^n \log \frac{f(x_i)}{g(x_i)}.
+
+        Note that the draws and the score :math:`f(x)` can be computed exactly
+        from the mixture model, while :math:`g(x)` is computed by normalising
+        the chain samples.
+
+        The variance of the Kullback-Leibler divergence estimate error can be
+        estimated with
+
+        .. math::
+            \text(Var)\left[ \hat{D}(f || g)\right] =
+            \frac{1}{n} \text(Var)\left[ \log \frac{f(x)}{g(x)} \right]
+        """
+
