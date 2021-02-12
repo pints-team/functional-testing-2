@@ -22,5 +22,7 @@ setup(
         'matplotlib',
         'numpy',
         'pints',
+        'tqdm',
+        'ipywidgets'
     ],
 )
