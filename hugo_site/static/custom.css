@@ -1,0 +1,72 @@
+.newsitem {
+    padding-bottom: 20px;
+}
+
+.newsitem:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.newsitemdate {
+    float: left;
+    clear: left;
+    width: 130px;
+    max-width: 25%;
+    padding-right: 20px;
+}
+
+.newsitemtext {
+    /* float: left; */
+    overflow:hidden;
+    /* max-width: 75%; */
+}
+
+.software {
+    padding-bottom: 20px;
+}
+
+.software:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.softwarename {
+    float: left;
+    clear: left;
+    width: 100px;
+    max-width: 25%;
+    padding-right: 20px;
+}
+
+.softwaretext {
+    /* float: left; */
+    overflow:hidden;
+    /* max-width: 75%; */
+}
+
+.gdoc-markdown {
+    max-width: 750px;
+}
+
+.publication {
+    padding-bottom: 1em;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.presentation {
+    margin-bottom: 2em;
+}
+
+.presentation ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.presentation > ul > li > ul > li::marker {
+    content: "\f559" " ";
+    padding-right: 1em;
+    font-family: FontAwesome;
+}

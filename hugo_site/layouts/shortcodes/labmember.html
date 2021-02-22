@@ -1,0 +1,6 @@
+<div class="labmember">
+<div class="labmemberphoto"><img src="{{ .Site.BaseURL }}people/{{ .Get "image" }}" alt="Picture" height="225" width="220" /></div>
+<div class="labmembertext">{{ .Inner | markdownify }}</div>
+</div>
+
+<!-- {{ .Get "name" | markdownify }} -->
