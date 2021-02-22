@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-9ee2938067e479199730195217255ee5"
+  },
+  "datasets": {
+    "data-9ee2938067e479199730195217255ee5": [
+      {
+        "date_time": "2021-02-22T22:48:01",
+        "kld": 0.0011968405534186,
+        "mean-ess": 289.34095317143414,
+        "pints_sha": "unknown-1614034081"
+      },
+      {
+        "date_time": "2021-02-22T22:48:01",
+        "kld": 0.0028985230089999,
+        "mean-ess": 288.92352350433663,
+        "pints_sha": "unknown-1614034081"
+      },
+      {
+        "date_time": "2021-02-22T22:48:01",
+        "kld": 0.0010874213390557,
+        "mean-ess": 296.1804414035063,
+        "pints_sha": "unknown-1614034081"
+      },
+      {
+        "date_time": "2021-02-22T22:48:23",
+        "kld": 0.00074324647895,
+        "mean-ess": 278.0784833124809,
+        "pints_sha": "unknown-1614034103"
+      },
+      {
+        "date_time": "2021-02-22T22:48:23",
+        "kld": 0.0012359486962085,
+        "mean-ess": 276.75909455888694,
+        "pints_sha": "unknown-1614034103"
+      },
+      {
+        "date_time": "2021-02-22T22:48:23",
+        "kld": 0.0010752408659031,
+        "mean-ess": 272.38774449235945,
+        "pints_sha": "unknown-1614034103"
+      },
+      {
+        "date_time": "2021-02-22T22:48:40",
+        "kld": 0.0009708818367235,
+        "mean-ess": 278.20471769590176,
+        "pints_sha": "unknown-1614034120"
+      },
+      {
+        "date_time": "2021-02-22T22:48:40",
+        "kld": 0.0016608306774179,
+        "mean-ess": 268.61489101203733,
+        "pints_sha": "unknown-1614034120"
+      },
+      {
+        "date_time": "2021-02-22T22:48:40",
+        "kld": 0.0024828566617478,
+        "mean-ess": 249.74902280265948,
+        "pints_sha": "unknown-1614034120"
+      },
+      {
+        "date_time": "2021-02-22T22:51:38",
+        "kld": 0.0016915302149105,
+        "mean-ess": 289.6785744601074,
+        "pints_sha": "unknown-1614034298"
+      },
+      {
+        "date_time": "2021-02-22T22:51:38",
+        "kld": 0.0021600211081058,
+        "mean-ess": 301.18200051742986,
+        "pints_sha": "unknown-1614034298"
+      },
+      {
+        "date_time": "2021-02-22T22:51:38",
+        "kld": 0.0035740530435475,
+        "mean-ess": 290.62697740470713,
+        "pints_sha": "unknown-1614034298"
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "pints_sha",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "kld",
+      "type": "quantitative"
+    }
+  },
+  "mark": "point"
+}

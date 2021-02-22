@@ -18,9 +18,11 @@ setup(
 
     # List of dependencies
     install_requires=[
+        'altair',
         'bayesian_changepoint_detection',
         'matplotlib',
         'numpy',
+        'pandas',
         'pints',
     ],
 )
