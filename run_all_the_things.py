@@ -1,5 +1,6 @@
 import altair as alt
 import datetime
+import numpy
 import os
 import pandas
 import pathlib
@@ -15,10 +16,13 @@ def run_the_tests():
     Run all the tests and shove the results into CSV files for now.  Later, a cloud database.
     """
     # Configurable, eventually?
-    num_runs = 3
+    num_runs = 5
+
+    # Base seed: then add run number for individual seeds
+    base_seed = int(time.time())
 
     # Will be run from a push on the PINTS GH repo, so this is the PINTS git sha
-    pints_sha = os.getenv('GITHUB_SHA') or f"unknown-{int(time.time())}"
+    pints_sha = os.getenv('GITHUB_SHA') or f"unknown-{base_seed}"
 
     # The date and time that the tests were run
     date_time = datetime.datetime.now().replace(microsecond=0).isoformat()
@@ -26,15 +30,23 @@ def run_the_tests():
     data_file = pathlib.Path('data') / f'{TestHaarioBardenetACMCOn2dimGaussianDistribution.get_name()}.csv'
     assert data_file.is_file(), f'{data_file} does not exist!'
 
-    results = [TestHaarioBardenetACMCOn2dimGaussianDistribution().get_results() for _ in range(num_runs)]
+    results = []
+    for run in range(num_runs):
+        seed = base_seed + run
+        numpy.random.seed(seed)
+        res = TestHaarioBardenetACMCOn2dimGaussianDistribution().get_results()
+        res['pints_sha'] = pints_sha
+        res['date_time'] = date_time
+        res['seed'] = seed
+        results.append(res)
 
     df = pandas.read_csv(data_file)
     for res in results[0].keys():
         assert res in df.columns, f'expected col in {data_file} called {res}'
+    for col in df.columns:
+        assert col in results[0].keys(), f'expected key in results dict called {col}'
 
     for res in results:
-        res['pints_sha'] = pints_sha
-        res['date_time'] = date_time
         df = df.append(res, ignore_index=True)
 
     with open(data_file, 'w') as f:
