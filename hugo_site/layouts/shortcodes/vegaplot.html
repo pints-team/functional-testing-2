@@ -1,0 +1,20 @@
+{{ $name := .Get "name" }}
+
+<div id="{{ $name }}"></div>
+
+<script>
+    (function (vegaEmbed) {
+        function showError(el, error) {
+            el.innerHTML = ('<div class="error" style="color:red;">'
+                + '<p>JavaScript Error: ' + error.message + '</p>'
+                + "<p>This usually means there's a typo in your chart specification. "
+                + "See the javascript console for the full traceback.</p>"
+                + '</div>');
+            throw error;
+        }
+
+        const el = document.getElementById('{{ $name }}');
+        vegaEmbed("#{{ $name }}", '{{ .Site.BaseURL }}json/{{ .Get "name" }}.json', {"mode": "vega-lite"})
+            .catch(error => showError(el, error));
+    })(vegaEmbed);
+</script>

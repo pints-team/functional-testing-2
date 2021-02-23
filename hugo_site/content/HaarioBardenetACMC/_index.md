@@ -4,4 +4,6 @@ title = "HaarioBardenetACMC"
 
 ## 2D Gaussian Distribution
 
-{{% datetime %}}
+{{< vegaplot name="TestHaarioBardenetACMCOn2dimGaussianDistribution_kld" >}}
+
+{{< vegaplot name="TestHaarioBardenetACMCOn2dimGaussianDistribution_mean-ess" >}}
