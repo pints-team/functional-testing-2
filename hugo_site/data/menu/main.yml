@@ -3,3 +3,5 @@ main:
   - name: Functional testing home
     ref: "/"
     icon: "fas fa-home fa-fw"
+  - name: HaarioBardenetACMC
+    ref: "/HaarioBardenetACMC"
