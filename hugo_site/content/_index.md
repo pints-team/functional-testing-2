@@ -1,3 +1,0 @@
-# Pints Functional Testing
-
-Homepage.

@@ -1,5 +1,0 @@
-{{ $name := (print (strings.TrimRight ". " (.Get "name")) ".") }}
-<div class="presentation">
-{{ with .Get "name"}} <strong>{{ $name }}</strong>{{ end }}
-{{ .Inner | markdownify }}
-</div>
