@@ -91,5 +91,5 @@ def plot_the_graphs():
 
 
 if __name__ == "__main__":
-    # run_the_tests()
+    run_the_tests()
     plot_the_graphs()
