@@ -65,7 +65,7 @@ def plot_the_graphs():
 
     df = pandas.read_csv(data_file)
 
-    chart_kld = alt.Chart(df).mark_point().encode(
+    chart_kld = alt.Chart(df[["pints_sha", "kld"]]).mark_point().encode(
         x='pints_sha',
         y='kld'
     )
@@ -73,7 +73,7 @@ def plot_the_graphs():
     with open(pathlib.Path('hugo_site') / 'data' / 'json' / f'{test_name}_kld.json', 'w') as f:
         f.write(chart_kld.to_json())
 
-    chart_ess = alt.Chart(df).mark_point().encode(
+    chart_ess = alt.Chart(df[["pints_sha", "mean-ess"]]).mark_point().encode(
         x='pints_sha',
         y='mean-ess'
     )
