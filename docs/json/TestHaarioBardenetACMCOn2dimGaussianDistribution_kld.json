@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-c7b1c3ba85f38f68f0184677a81f3caf"
+  },
+  "datasets": {
+    "data-c7b1c3ba85f38f68f0184677a81f3caf": [
+      {
+        "kld": 0.0055295987524075,
+        "pints_sha": "unknown-1614074276"
+      },
+      {
+        "kld": 0.0018197830096109,
+        "pints_sha": "unknown-1614074276"
+      },
+      {
+        "kld": 0.0006230454158437,
+        "pints_sha": "unknown-1614074276"
+      },
+      {
+        "kld": 0.0023550523652198,
+        "pints_sha": "unknown-1614074276"
+      },
+      {
+        "kld": 0.0041112868734589,
+        "pints_sha": "unknown-1614074276"
+      },
+      {
+        "kld": 0.0010668845308514,
+        "pints_sha": "unknown-1614074354"
+      },
+      {
+        "kld": 0.0017821390530465,
+        "pints_sha": "unknown-1614074354"
+      },
+      {
+        "kld": 9.005226441161085e-05,
+        "pints_sha": "unknown-1614074354"
+      },
+      {
+        "kld": 0.0025910220874392,
+        "pints_sha": "unknown-1614074354"
+      },
+      {
+        "kld": 0.004397393264282,
+        "pints_sha": "unknown-1614074354"
+      },
+      {
+        "kld": 0.0034121645254305,
+        "pints_sha": "unknown-1614074367"
+      },
+      {
+        "kld": 0.005118363315832,
+        "pints_sha": "unknown-1614074367"
+      },
+      {
+        "kld": 0.0014768443568813,
+        "pints_sha": "unknown-1614074367"
+      },
+      {
+        "kld": 0.0024744533675582,
+        "pints_sha": "unknown-1614074367"
+      },
+      {
+        "kld": 0.0012199669612735,
+        "pints_sha": "unknown-1614074367"
+      },
+      {
+        "kld": 0.001838922492702,
+        "pints_sha": "unknown-1614081977"
+      },
+      {
+        "kld": 0.0009475989523759,
+        "pints_sha": "unknown-1614081977"
+      },
+      {
+        "kld": 0.0031445220481358,
+        "pints_sha": "unknown-1614081977"
+      },
+      {
+        "kld": 0.0037645853948391,
+        "pints_sha": "unknown-1614081977"
+      },
+      {
+        "kld": 0.0038751684265843,
+        "pints_sha": "unknown-1614081977"
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "pints_sha",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "kld",
+      "type": "quantitative"
+    }
+  },
+  "mark": "point"
+}
