@@ -7,10 +7,10 @@
     }
   },
   "data": {
-    "name": "data-c7b1c3ba85f38f68f0184677a81f3caf"
+    "name": "data-fc4a00b4590d010bc7491aab9d0fa459"
   },
   "datasets": {
-    "data-c7b1c3ba85f38f68f0184677a81f3caf": [
+    "data-fc4a00b4590d010bc7491aab9d0fa459": [
       {
         "kld": 0.0055295987524075,
         "pints_sha": "unknown-1614074276"
@@ -90,10 +90,35 @@
       {
         "kld": 0.0038751684265843,
         "pints_sha": "unknown-1614081977"
+      },
+      {
+        "kld": 0.0021722455688937,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "kld": 0.0002785841173218,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "kld": 0.0039207831057692,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "kld": 0.0024986295050679,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "kld": 0.0023665720603374,
+        "pints_sha": "unknown-1614082497"
       }
     ]
   },
   "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
     "x": {
       "field": "pints_sha",
       "type": "nominal"
@@ -103,5 +128,17 @@
       "type": "quantitative"
     }
   },
-  "mark": "point"
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector001": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
 }

@@ -7,10 +7,10 @@
     }
   },
   "data": {
-    "name": "data-42d183665c159538e911ddd33279433d"
+    "name": "data-4bf1401116273323369c401784204d25"
   },
   "datasets": {
-    "data-42d183665c159538e911ddd33279433d": [
+    "data-4bf1401116273323369c401784204d25": [
       {
         "mean-ess": 277.3088331430493,
         "pints_sha": "unknown-1614074276"
@@ -90,10 +90,35 @@
       {
         "mean-ess": 282.91499270451465,
         "pints_sha": "unknown-1614081977"
+      },
+      {
+        "mean-ess": 290.0619137446693,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "mean-ess": 265.4310074810638,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "mean-ess": 293.8561200599449,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "mean-ess": 287.036871511898,
+        "pints_sha": "unknown-1614082497"
+      },
+      {
+        "mean-ess": 291.705274784059,
+        "pints_sha": "unknown-1614082497"
       }
     ]
   },
   "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
     "x": {
       "field": "pints_sha",
       "type": "nominal"
@@ -103,5 +128,17 @@
       "type": "quantitative"
     }
   },
-  "mark": "point"
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector002": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
 }
