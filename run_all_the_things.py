@@ -67,22 +67,29 @@ def plot_the_graphs():
 
     chart_kld = alt.Chart(df[["pints_sha", "kld"]]).mark_point().encode(
         x='pints_sha',
-        y='kld'
-    )
-    chart_kld.save('test.html')
+        y='kld',
+        color=alt.Color('pints_sha', legend=None),
+    ).properties(
+        width=800,
+        height=150
+    ).interactive()
 
     with open(pathlib.Path('hugo_site') / 'static' / 'json' / f'{test_name}_kld.json', 'w') as f:
         f.write(chart_kld.to_json())
 
     chart_ess = alt.Chart(df[["pints_sha", "mean-ess"]]).mark_point().encode(
         x='pints_sha',
-        y='mean-ess'
-    )
+        y='mean-ess',
+        color=alt.Color('pints_sha', legend=None),
+    ).properties(
+        width=800,
+        height=150
+    ).interactive()
 
     with open(pathlib.Path('hugo_site') / 'static' / 'json' / f'{test_name}_mean-ess.json', 'w') as f:
         f.write(chart_ess.to_json())
 
 
 if __name__ == "__main__":
-    run_the_tests()
+    # run_the_tests()
     plot_the_graphs()
