@@ -1,3 +1,3 @@
 # Pints Functional Testing
 
-Homepage.
+{{% datetime %}}
