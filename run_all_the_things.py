@@ -6,18 +6,28 @@ import pandas
 import pathlib
 import time
 
-# Eventually we import loop over everything importable from pints.functionaltests that starts with
-# Test*?
-from pints.functionaltests import TestHaarioBardenetACMCOn2dimGaussianDistribution
+import pints.functionaltests
 
 
-def run_the_tests():
+def get_list_of_tests():
     """
-    Run all the tests and shove the results into CSV files for now.  Later, a cloud database.
+    Inspect the pints.functionaltests module for all methods beginning with 'test_'
     """
-    # Configurable, eventually?
-    num_runs = 5
+    return [func for func in dir(pints.functionaltests) if func.startswith('test_')]
 
+
+def get_method_and_problem_from_test_name(test_name):
+    """
+    Turn a test name into a tuple of method and problem names, e.g.
+    test_haario_bardenet_acmc_on_two_dim_gaussian -> (haario_bardenet_acmc, two_dim_gaussian)
+    """
+    return test_name.replace('test_', '', 1).split(sep='_on_')
+
+
+def run_the_test(test_name, num_runs):
+    """
+    Run the given test and save the results into CSV files for now.  Later, a cloud database.
+    """
     # Base seed: then add run number for individual seeds
     base_seed = int(time.time())
 
@@ -27,14 +37,16 @@ def run_the_tests():
     # The date and time that the tests were run
     date_time = datetime.datetime.now().replace(microsecond=0).isoformat()
 
-    data_file = pathlib.Path('data') / f'{TestHaarioBardenetACMCOn2dimGaussianDistribution.get_name()}.csv'
+    method, problem = get_method_and_problem_from_test_name(test_name)
+
+    data_file = pathlib.Path('data') / method / f'{problem}.csv'
     assert data_file.is_file(), f'{data_file} does not exist!'
 
     results = []
     for run in range(num_runs):
         seed = base_seed + run
         numpy.random.seed(seed)
-        res = TestHaarioBardenetACMCOn2dimGaussianDistribution().get_results()
+        res = getattr(pints.functionaltests, test)()
         res['pints_sha'] = pints_sha
         res['date_time'] = date_time
         res['seed'] = seed
@@ -53,14 +65,15 @@ def run_the_tests():
         f.write(df.to_csv(index=False))
 
 
-def plot_the_graphs():
+def plot_the_graphs(test_name):
     """
-    Plot the graphs, and dump the JSON out into JSON files in the hugo website directory
+    Plot the graphs for a given test, and dump the JSON out into JSON files in the hugo website
+    directory
     """
 
-    test_name = TestHaarioBardenetACMCOn2dimGaussianDistribution.get_name()
+    method, problem = get_method_and_problem_from_test_name(test_name)
 
-    data_file = pathlib.Path('data') / f'{test_name}.csv'
+    data_file = pathlib.Path('data') / method / f'{problem}.csv'
     assert data_file.is_file(), f'{data_file} does not exist!'
 
     df = pandas.read_csv(data_file)
@@ -74,7 +87,7 @@ def plot_the_graphs():
         height=150
     ).interactive()
 
-    with open(pathlib.Path('hugo_site') / 'static' / 'json' / f'{test_name}_kld.json', 'w') as f:
+    with open(pathlib.Path('hugo_site') / 'static' / 'json' / method / f'{problem}_kld.json', 'w') as f:
         f.write(chart_kld.to_json())
 
     chart_ess = alt.Chart(df[["pints_sha", "mean-ess"]]).mark_point().encode(
@@ -86,10 +99,12 @@ def plot_the_graphs():
         height=150
     ).interactive()
 
-    with open(pathlib.Path('hugo_site') / 'static' / 'json' / f'{test_name}_mean-ess.json', 'w') as f:
+    with open(pathlib.Path('hugo_site') / 'static' / 'json' / method / f'{problem}_mean-ess.json', 'w') as f:
         f.write(chart_ess.to_json())
 
 
 if __name__ == "__main__":
-    run_the_tests()
-    plot_the_graphs()
+
+    for test in get_list_of_tests():
+        run_the_test(test_name=test, num_runs=5)
+        plot_the_graphs(test)

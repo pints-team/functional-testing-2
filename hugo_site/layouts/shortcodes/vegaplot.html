@@ -1,6 +1,7 @@
-{{ $name := .Get "name" }}
+{{ $method := .Get "method" }}
+{{ $plot := .Get "plot" }}
 
-<div id="{{ $name }}"></div>
+<div id="{{ $method }}_{{ $plot }}"></div>
 
 <script>
     (function (vegaEmbed) {
@@ -13,8 +14,8 @@
             throw error;
         }
 
-        const el = document.getElementById('{{ $name }}');
-        vegaEmbed("#{{ $name }}", '{{ .Site.BaseURL }}json/{{ .Get "name" }}.json', {"mode": "vega-lite"})
+        const el = document.getElementById('{{ $method }}_{{ $plot }}');
+        vegaEmbed("#{{ $method }}_{{ $plot }}", '{{ .Site.BaseURL }}json/{{ .Get "method" }}/{{ .Get "plot" }}.json', {"mode": "vega-lite"})
             .catch(error => showError(el, error));
     })(vegaEmbed);
 </script>

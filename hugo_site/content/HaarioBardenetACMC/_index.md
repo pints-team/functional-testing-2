@@ -4,6 +4,6 @@ title = "HaarioBardenetACMC"
 
 ## 2D Gaussian Distribution
 
-{{< vegaplot name="TestHaarioBardenetACMCOn2dimGaussianDistribution_kld" >}}
+{{< vegaplot method="haario_bardenet_acmc" plot="two_dim_gaussian_kld" >}}
 
-{{< vegaplot name="TestHaarioBardenetACMCOn2dimGaussianDistribution_mean-ess" >}}
+{{< vegaplot method="haario_bardenet_acmc" plot="two_dim_gaussian_mean-ess" >}}
