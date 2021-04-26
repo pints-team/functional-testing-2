@@ -7,10 +7,10 @@
     }
   },
   "data": {
-    "name": "data-a461dfc8ddbb1345827a57d265f0b5b9"
+    "name": "data-9e4d691a9fce8ade5ba3169d9ef83ad0"
   },
   "datasets": {
-    "data-a461dfc8ddbb1345827a57d265f0b5b9": [
+    "data-9e4d691a9fce8ade5ba3169d9ef83ad0": [
       {
         "date_time": "2021-02-23T09:57:56",
         "mean-ess": 277.3088331430493,
@@ -790,6 +790,66 @@
         "mean-ess": 247.8495800631943,
         "pints_sha": "88a48035db528fecf651e52e6a27c7fd75b9da8f",
         "sha_name": "88a48035"
+      },
+      {
+        "date_time": "2021-04-26T22:53:46",
+        "mean-ess": 271.4362307309684,
+        "pints_sha": "unknown-1619474026",
+        "sha_name": "1619474026"
+      },
+      {
+        "date_time": "2021-04-26T22:53:46",
+        "mean-ess": 268.63759426677655,
+        "pints_sha": "unknown-1619474026",
+        "sha_name": "1619474026"
+      },
+      {
+        "date_time": "2021-04-26T22:53:46",
+        "mean-ess": 284.76264053387945,
+        "pints_sha": "unknown-1619474026",
+        "sha_name": "1619474026"
+      },
+      {
+        "date_time": "2021-04-26T22:53:46",
+        "mean-ess": 280.2883013059473,
+        "pints_sha": "unknown-1619474026",
+        "sha_name": "1619474026"
+      },
+      {
+        "date_time": "2021-04-26T22:53:46",
+        "mean-ess": 282.0846847167703,
+        "pints_sha": "unknown-1619474026",
+        "sha_name": "1619474026"
+      },
+      {
+        "date_time": "2021-04-26T23:16:21",
+        "mean-ess": 284.6404439036186,
+        "pints_sha": "unknown-1619475381",
+        "sha_name": "1619475381"
+      },
+      {
+        "date_time": "2021-04-26T23:16:21",
+        "mean-ess": 266.1971648604192,
+        "pints_sha": "unknown-1619475381",
+        "sha_name": "1619475381"
+      },
+      {
+        "date_time": "2021-04-26T23:16:21",
+        "mean-ess": 290.8626886011882,
+        "pints_sha": "unknown-1619475381",
+        "sha_name": "1619475381"
+      },
+      {
+        "date_time": "2021-04-26T23:16:21",
+        "mean-ess": 281.9114830173588,
+        "pints_sha": "unknown-1619475381",
+        "sha_name": "1619475381"
+      },
+      {
+        "date_time": "2021-04-26T23:16:21",
+        "mean-ess": 279.00452393816767,
+        "pints_sha": "unknown-1619475381",
+        "sha_name": "1619475381"
       }
     ]
   },
@@ -804,19 +864,18 @@
       "sort": {
         "field": "date_time"
       },
-      "title": "commit sha",
       "type": "ordinal"
     },
     "y": {
       "field": "mean-ess",
-      "title": "mean ESS",
+      "title": "MEAN-ESS",
       "type": "quantitative"
     }
   },
   "height": 150,
   "mark": "point",
   "selection": {
-    "selector002": {
+    "selector012": {
       "bind": "scales",
       "encodings": [
         "x",

@@ -75,6 +75,32 @@ def format_sha(sha_column):
     return formatted_sha
 
 
+def plot_graph(method, problem, df, col):
+    chart = alt.Chart(df[["pints_sha", "sha_name", col, "date_time"]]).mark_point().encode(
+        x=alt.X(
+            field='sha_name',
+            type='ordinal',
+            sort={"field": "date_time"},
+        ),
+        y=alt.Y(
+            field=col,
+            type='quantitative',
+            title=col.upper().replace('_', ' '),
+        ),
+        color=alt.Color('pints_sha', legend=None),
+    ).properties(
+        width=800,
+        height=150
+    ).interactive()
+
+    output_dir = pathlib.Path('hugo_site') / 'static' / 'json' / method
+    os.makedirs(output_dir, exist_ok=True)
+
+    with open(output_dir / f'{problem}_{col}.json', 'w') as f:
+        print(output_dir / f'{problem}_{col}.json')
+        f.write(chart.to_json())
+
+
 def plot_the_graphs(test_name):
     """
     Plot the graphs for a given test, and dump the JSON out into JSON files in the hugo website
@@ -87,47 +113,16 @@ def plot_the_graphs(test_name):
 
     df = pandas.read_csv(data_file)
     df["sha_name"] = format_sha(df["pints_sha"])
+    col_names = list(df.columns)
 
-    chart_kld = alt.Chart(df[["pints_sha", "sha_name", "kld", "date_time"]]).mark_point().encode(
-        x=alt.X(
-            field='sha_name',
-            type='ordinal',
-            sort={"field": "date_time"},
-        ),
-        y=alt.Y(
-            field='kld',
-            type='quantitative',
-            title='KLD',
-        ),
-        color=alt.Color('pints_sha', legend=None),
-    ).properties(
-        width=800,
-        height=150
-    ).interactive()
+    if 'kld' in col_names:
+        plot_graph(method, problem, df, 'kld')
 
-    with open(pathlib.Path('hugo_site') / 'static' / 'json' / method / f'{problem}_kld.json', 'w') as f:
-        f.write(chart_kld.to_json())
+    if 'distance' in col_names:
+        plot_graph(method, problem, df, 'distance')
 
-    chart_ess = alt.Chart(df[["pints_sha", "sha_name", "mean-ess", "date_time"]]).mark_point().encode(
-        x=alt.X(
-            field='sha_name',
-            type='ordinal',
-            sort={"field": "date_time"},
-            title="commit sha",
-        ),
-        y=alt.Y(
-            field='mean-ess',
-            type='quantitative',
-            title='mean ESS',
-        ),
-        color=alt.Color('pints_sha', legend=None),
-    ).properties(
-        width=800,
-        height=150
-    ).interactive()
-
-    with open(pathlib.Path('hugo_site') / 'static' / 'json' / method / f'{problem}_mean-ess.json', 'w') as f:
-        f.write(chart_ess.to_json())
+    if 'mean-ess' in col_names:
+        plot_graph(method, problem, df, 'mean-ess')
 
 
 if __name__ == "__main__":

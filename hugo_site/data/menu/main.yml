@@ -3,5 +3,7 @@ main:
   - name: Functional testing home
     ref: "/"
     icon: "fas fa-home fa-fw"
+  - name: DifferentialEvolution
+    ref: "/DifferentialEvolution"
   - name: HaarioBardenetACMC
     ref: "/HaarioBardenetACMC"
