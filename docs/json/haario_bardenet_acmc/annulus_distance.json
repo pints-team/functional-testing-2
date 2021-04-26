@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-4ac8eba2267c7764bf4c05127c3099b2"
+  },
+  "datasets": {
+    "data-4ac8eba2267c7764bf4c05127c3099b2": [
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "distance": 0.0867422383832261,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "distance": 0.1144174334207686,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "distance": 0.101229270003425,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "distance": 0.0357792930221263,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "distance": 0.0319902523864421,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "distance": 0.0256775754592,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "distance": 0.0779958805131774,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "distance": 0.0635750909030611,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "distance": 0.0742515486891253,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "distance": 0.0769682006835795,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      }
+    ]
+  },
+  "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
+    "x": {
+      "field": "sha_name",
+      "sort": {
+        "field": "date_time"
+      },
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "distance",
+      "title": "DISTANCE",
+      "type": "quantitative"
+    }
+  },
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector005": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
+}

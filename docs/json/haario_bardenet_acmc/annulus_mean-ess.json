@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-375833863469c6fedee5482513ce0186"
+  },
+  "datasets": {
+    "data-375833863469c6fedee5482513ce0186": [
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "mean-ess": 46.73689937912432,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "mean-ess": 51.67590489036069,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "mean-ess": 42.12343812184839,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "mean-ess": 38.91332208099247,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T22:53:07",
+        "mean-ess": 34.31913776011115,
+        "pints_sha": "unknown-1619473987",
+        "sha_name": "1619473987"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "mean-ess": 42.19405514088187,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "mean-ess": 43.48324351241178,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "mean-ess": 43.552725297982384,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "mean-ess": 36.61765685357339,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      },
+      {
+        "date_time": "2021-04-26T23:15:40",
+        "mean-ess": 43.78219252581314,
+        "pints_sha": "unknown-1619475340",
+        "sha_name": "1619475340"
+      }
+    ]
+  },
+  "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
+    "x": {
+      "field": "sha_name",
+      "sort": {
+        "field": "date_time"
+      },
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "mean-ess",
+      "title": "MEAN-ESS",
+      "type": "quantitative"
+    }
+  },
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector006": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
+}

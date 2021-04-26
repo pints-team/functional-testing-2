@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-cc592fe145750e620a1796ce45eb289b"
+  },
+  "datasets": {
+    "data-cc592fe145750e620a1796ce45eb289b": [
+      {
+        "date_time": "2021-04-26T22:52:18",
+        "kld": 0.9769295057409932,
+        "pints_sha": "unknown-1619473938",
+        "sha_name": "1619473938"
+      },
+      {
+        "date_time": "2021-04-26T22:52:18",
+        "kld": 0.8824573286143127,
+        "pints_sha": "unknown-1619473938",
+        "sha_name": "1619473938"
+      },
+      {
+        "date_time": "2021-04-26T22:52:18",
+        "kld": 0.917469889553872,
+        "pints_sha": "unknown-1619473938",
+        "sha_name": "1619473938"
+      },
+      {
+        "date_time": "2021-04-26T22:52:18",
+        "kld": 1.1627040254235226,
+        "pints_sha": "unknown-1619473938",
+        "sha_name": "1619473938"
+      },
+      {
+        "date_time": "2021-04-26T22:52:18",
+        "kld": 0.5907296441001502,
+        "pints_sha": "unknown-1619473938",
+        "sha_name": "1619473938"
+      },
+      {
+        "date_time": "2021-04-26T23:14:52",
+        "kld": 0.7870579800217465,
+        "pints_sha": "unknown-1619475292",
+        "sha_name": "1619475292"
+      },
+      {
+        "date_time": "2021-04-26T23:14:52",
+        "kld": 0.7000072302686271,
+        "pints_sha": "unknown-1619475292",
+        "sha_name": "1619475292"
+      },
+      {
+        "date_time": "2021-04-26T23:14:52",
+        "kld": 0.9260519186137328,
+        "pints_sha": "unknown-1619475292",
+        "sha_name": "1619475292"
+      },
+      {
+        "date_time": "2021-04-26T23:14:52",
+        "kld": 0.9762497709974872,
+        "pints_sha": "unknown-1619475292",
+        "sha_name": "1619475292"
+      },
+      {
+        "date_time": "2021-04-26T23:14:52",
+        "kld": 0.9353040448962564,
+        "pints_sha": "unknown-1619475292",
+        "sha_name": "1619475292"
+      }
+    ]
+  },
+  "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
+    "x": {
+      "field": "sha_name",
+      "sort": {
+        "field": "date_time"
+      },
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "kld",
+      "title": "KLD",
+      "type": "quantitative"
+    }
+  },
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector001": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
+}
