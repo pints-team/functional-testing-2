@@ -65,22 +65,40 @@ def run_the_test(test_name, num_runs):
         f.write(df.to_csv(index=False))
 
 
+def format_sha(sha_column):
+    formatted_sha = []
+    for sha in sha_column:
+        if sha.startswith('unknown-'):
+            formatted_sha.append(sha.replace('unknown-', ''))
+        else:
+            formatted_sha.append(sha[0:8])
+    return formatted_sha
+
+
 def plot_the_graphs(test_name):
     """
     Plot the graphs for a given test, and dump the JSON out into JSON files in the hugo website
     directory
     """
-
     method, problem = get_method_and_problem_from_test_name(test_name)
 
     data_file = pathlib.Path('data') / method / f'{problem}.csv'
     assert data_file.is_file(), f'{data_file} does not exist!'
 
     df = pandas.read_csv(data_file)
+    df["sha_name"] = format_sha(df["pints_sha"])
 
-    chart_kld = alt.Chart(df[["pints_sha", "kld"]]).mark_point().encode(
-        x='pints_sha',
-        y='kld',
+    chart_kld = alt.Chart(df[["pints_sha", "sha_name", "kld", "date_time"]]).mark_point().encode(
+        x=alt.X(
+            field='sha_name',
+            type='ordinal',
+            sort={"field": "date_time"},
+        ),
+        y=alt.Y(
+            field='kld',
+            type='quantitative',
+            title='KLD',
+        ),
         color=alt.Color('pints_sha', legend=None),
     ).properties(
         width=800,
@@ -90,9 +108,18 @@ def plot_the_graphs(test_name):
     with open(pathlib.Path('hugo_site') / 'static' / 'json' / method / f'{problem}_kld.json', 'w') as f:
         f.write(chart_kld.to_json())
 
-    chart_ess = alt.Chart(df[["pints_sha", "mean-ess"]]).mark_point().encode(
-        x='pints_sha',
-        y='mean-ess',
+    chart_ess = alt.Chart(df[["pints_sha", "sha_name", "mean-ess", "date_time"]]).mark_point().encode(
+        x=alt.X(
+            field='sha_name',
+            type='ordinal',
+            sort={"field": "date_time"},
+            title="commit sha",
+        ),
+        y=alt.Y(
+            field='mean-ess',
+            type='quantitative',
+            title='mean ESS',
+        ),
         color=alt.Color('pints_sha', legend=None),
     ).properties(
         width=800,
