@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-d17651b9a311c8cd5c8b7d89e73fd593"
+  },
+  "datasets": {
+    "data-d17651b9a311c8cd5c8b7d89e73fd593": [
+      {
+        "date_time": "2021-08-24T14:53:42",
+        "kld": 0.4286615565695144,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:53:42",
+        "kld": 0.9152586409664574,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:53:42",
+        "kld": 0.2698139640559014,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:53:42",
+        "kld": 0.9254281655728906,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:53:42",
+        "kld": 0.4736312380004874,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      }
+    ]
+  },
+  "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
+    "x": {
+      "field": "sha_name",
+      "sort": {
+        "field": "date_time"
+      },
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "kld",
+      "title": "KLD",
+      "type": "quantitative"
+    }
+  },
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector089": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
+}

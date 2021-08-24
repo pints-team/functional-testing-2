@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "name": "data-92dc7ee7b35d00cc2de3cf970c8f49a2"
+  },
+  "datasets": {
+    "data-92dc7ee7b35d00cc2de3cf970c8f49a2": [
+      {
+        "date_time": "2021-08-24T14:36:30",
+        "mean-ess": 35.26378122302952,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:36:30",
+        "mean-ess": 14.518852234020304,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:36:30",
+        "mean-ess": 38.84414371720808,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:36:30",
+        "mean-ess": 40.36310078667516,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      },
+      {
+        "date_time": "2021-08-24T14:36:30",
+        "mean-ess": 25.58756025432428,
+        "pints_sha": "b54bf9a6fce885f7a018b8482422a3c78c121833",
+        "sha_name": "b54bf9a6"
+      }
+    ]
+  },
+  "encoding": {
+    "color": {
+      "field": "pints_sha",
+      "legend": null,
+      "type": "nominal"
+    },
+    "x": {
+      "field": "sha_name",
+      "sort": {
+        "field": "date_time"
+      },
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "mean-ess",
+      "title": "MEAN-ESS",
+      "type": "quantitative"
+    }
+  },
+  "height": 150,
+  "mark": "point",
+  "selection": {
+    "selector036": {
+      "bind": "scales",
+      "encodings": [
+        "x",
+        "y"
+      ],
+      "type": "interval"
+    }
+  },
+  "width": 800
+}
