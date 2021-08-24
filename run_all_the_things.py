@@ -6,27 +6,13 @@ import pandas
 import pathlib
 import time
 
-import pints.functionaltests
+import pints.cptests
 
 
-def get_list_of_tests():
+def run_the_test(method, problem, num_runs):
     """
-    Inspect the pints.functionaltests module for all methods beginning with 'test_'
-    """
-    return [func for func in dir(pints.functionaltests) if func.startswith('test_')]
-
-
-def get_method_and_problem_from_test_name(test_name):
-    """
-    Turn a test name into a tuple of method and problem names, e.g.
-    test_haario_bardenet_acmc_on_two_dim_gaussian -> (haario_bardenet_acmc, two_dim_gaussian)
-    """
-    return test_name.replace('test_', '', 1).split(sep='_on_')
-
-
-def run_the_test(test_name, num_runs):
-    """
-    Run the given test and save the results into CSV files for now.  Later, a cloud database.
+    Run the given test (``problem``) and save the results into CSV files for
+    now. Later, a cloud database.
     """
     # Base seed: then add run number for individual seeds
     base_seed = int(time.time())
@@ -37,26 +23,29 @@ def run_the_test(test_name, num_runs):
     # The date and time that the tests were run
     date_time = datetime.datetime.now().replace(microsecond=0).isoformat()
 
-    method, problem = get_method_and_problem_from_test_name(test_name)
-
-    data_file = pathlib.Path('data') / method / f'{problem}.csv'
-    assert data_file.is_file(), f'{data_file} does not exist!'
+    data_file = pathlib.Path('data') / method.__name__ / f'{problem.__name__}.csv'
+    appending_to_file = data_file.is_file()
+    if not appending_to_file:
+        os.makedirs(data_file.parent, exist_ok=True)
 
     results = []
     for run in range(num_runs):
         seed = base_seed + run
         numpy.random.seed(seed)
-        res = getattr(pints.functionaltests, test)()
+        res = problem()
         res['pints_sha'] = pints_sha
         res['date_time'] = date_time
         res['seed'] = seed
         results.append(res)
 
-    df = pandas.read_csv(data_file)
-    for res in results[0].keys():
-        assert res in df.columns, f'expected col in {data_file} called {res}'
-    for col in df.columns:
-        assert col in results[0].keys(), f'expected key in results dict called {col}'
+    if appending_to_file:
+        df = pandas.read_csv(data_file)
+        for res in results[0].keys():
+            assert res in df.columns, f'expected col in {data_file} called {res}'
+        for col in df.columns:
+            assert col in results[0].keys(), f'expected key in results dict called {col}'
+    else:
+        df = pandas.DataFrame()
 
     for res in results:
         df = df.append(res, ignore_index=True)
@@ -75,7 +64,7 @@ def format_sha(sha_column):
     return formatted_sha
 
 
-def plot_graph(method, problem, df, col):
+def plot_graph(method, test, df, col):
     chart = alt.Chart(df[["pints_sha", "sha_name", col, "date_time"]]).mark_point().encode(
         x=alt.X(
             field='sha_name',
@@ -101,12 +90,13 @@ def plot_graph(method, problem, df, col):
         f.write(chart.to_json())
 
 
-def plot_the_graphs(test_name):
+def plot_the_graphs(method, problem):
     """
     Plot the graphs for a given test, and dump the JSON out into JSON files in the hugo website
     directory
     """
-    method, problem = get_method_and_problem_from_test_name(test_name)
+    # TODO: Make .name() a classmethod so we can do this properly
+    method, problem = method.__name__, problem.__name__
 
     data_file = pathlib.Path('data') / method / f'{problem}.csv'
     assert data_file.is_file(), f'{data_file} does not exist!'
@@ -127,6 +117,7 @@ def plot_the_graphs(test_name):
 
 if __name__ == "__main__":
 
-    for test in get_list_of_tests():
-        run_the_test(test_name=test, num_runs=5)
-        plot_the_graphs(test)
+    for method, problem in pints.cptests.tests():
+        print(f'Testing {method.__name__} on {problem.__name__}')
+        run_the_test(method, problem, num_runs=5)
+        plot_the_graphs(method, problem)
